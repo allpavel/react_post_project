@@ -1,0 +1,13 @@
+.postslist {
+    display: flex;
+    flex-direction: column;
+}
+
+.post {
+    margin-top: 20px;
+    padding: 0 40px;
+    border: 2px solid green;
+    display: flex;
+    justify-content: space-between;
+    align-items: center
+}
