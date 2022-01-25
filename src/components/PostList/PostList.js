@@ -1,18 +1,19 @@
 import React from 'react';
 import styles from './PostList.module.css';
+import { Post } from '../Post/Post';
 
-export const PostList = (props) => {
-    return (
-        <section className={styles.postslist}>
-            {props.posts.map((post, index) => (
-                <section key={post.id} className={styles.post}>
-                    <section>
-                        <h2>{index + 1}. {post.title}</h2>
-                        <p>{post.description}</p>
-                    </section>
-                    <button>Delete</button>
-                </section>
-            ))}
-        </section>
-    )
-}
+export const PostList = ({posts, onDeletePost}) => {
+    if (posts.length) {
+        return (
+            <section className={styles.postslist}>
+                {posts.map((post, index) => <Post 
+                                                post={post} 
+                                                index={index} 
+                                                key={post.id} 
+                                                onDeletePost={onDeletePost}/>)}
+            </section>
+        )
+    }
+    return <h1 className={styles.emptylist}>There are no posts</h1>
+
+};

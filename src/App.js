@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { PostList } from './components/PostList/PostList';
+import { AddPost } from './components/AddPost/AddPost';
 
 const POSTS = [
   {id: 1, title: 'Javascript', description: 'some text'},
@@ -12,9 +13,18 @@ const POSTS = [
 export const App = () => {
   const [posts, setPosts] = useState(POSTS);
 
+  const handleCreatePost = (newPost) => {
+    setPosts([...posts, newPost]);
+  };
+
+  const handleDeletePost = (removePost) => {
+    setPosts(posts.filter(post => post.id !== removePost.id))
+  };
+
   return (
     <>
-      <PostList posts={posts} />
+      <AddPost createPost={handleCreatePost} />
+      <PostList posts={posts} onDeletePost={handleDeletePost} />
     </>
   )
 };
