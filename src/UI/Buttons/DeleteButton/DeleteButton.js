@@ -6,7 +6,7 @@ export const DeleteButton = (props) => {
         <div className={styles.close_container} {...props}>
             <div className={styles.leftright}></div>
             <div className={styles.rightleft}></div>
-            <label className={styles.delete}>delete</label>
+            <label className={`${styles.delete} ${styles.label}`}>delete</label>
         </div>
     )
 };

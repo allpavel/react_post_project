@@ -33,7 +33,7 @@
     transition: all .3s ease-in;
 }
 
-label {
+.label {
     color: black;
     font-family: Helvetica, Arial, sans-serif;
     font-size: .6em;
