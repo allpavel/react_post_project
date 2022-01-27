@@ -9,7 +9,7 @@ export const Sort = ({value, onChange}) => {
                 <select value={value} onChange={(event) => onChange(event.target.value)}>
                     <option className={styles.disabled} value='' disabled>choose the order</option>
                     <option value='title'>Title</option>
-                    <option value='description'>Description</option>
+                    <option value='body'>Description</option>
                 </select>
             </label>
         </section>
