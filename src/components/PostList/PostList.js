@@ -1,16 +1,13 @@
 import React from 'react';
 import styles from './PostList.module.css';
 import { Post } from '../Post/Post';
+import {v4 as uuidv4} from 'uuid';
 
 export const PostList = ({posts, onDeletePost}) => {
     if (posts.length) {
         return (
             <section className={styles.postslist}>
-                {posts.map((post, index) => <Post 
-                                                post={post} 
-                                                index={index} 
-                                                key={post.id} 
-                                                onDeletePost={onDeletePost}/>)}
+                    {posts.map((post, index) => <Post key={uuidv4()} post={post} index={index} onDeletePost={onDeletePost} />)}
             </section>
         )
     }
