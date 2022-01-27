@@ -8,7 +8,7 @@ export const Post = ({post, index, onDeletePost}) => {
             <article key={post.id} className={styles.post}>
                 <article>
                     <h2>{index + 1}. {post.title}</h2>
-                    <p>{post.description}</p>
+                    <p>{post.body}</p>
                 </article>
                 <DeleteButton onClick={() => onDeletePost(post)} />
             </article>
