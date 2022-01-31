@@ -3,14 +3,14 @@ import styles from './AddPost.module.css';
 
 export const AddPost = ({createPost}) => {
     const [title, setTitle] = useState('');
-    const [desc, setDesc] = useState('');
+    const [body, setBody] = useState('');
   
     const handleTitleChange = (event) => {
       setTitle(event.target.value);
     };
   
     const handleDecriptionChange = (event) => {
-      setDesc(event.target.value);
+      setBody(event.target.value);
     };
 
     const handleAddPost = (event) => {
@@ -18,11 +18,11 @@ export const AddPost = ({createPost}) => {
         const newPost = {
           id: Date.now(),
           title: title,
-          description: desc
+          body: body
         };
         createPost(newPost);
         setTitle('');
-        setDesc('');
+        setBody('');
     };
 
 
@@ -35,11 +35,11 @@ export const AddPost = ({createPost}) => {
                     <span>Title</span>
                 </div>
                 <div className={styles.inputbox}>
-                    <input type='text' required='required' value={desc} onChange={handleDecriptionChange} />
+                    <input type='text' required='required' value={body} onChange={handleDecriptionChange} />
                     <span>Description</span>
                 </div>
                 <div className={styles.inputbox}>
-                    <input type='button' value='submit' onClick={handleAddPost} />
+                    <input type='button' value='submit' onClick={handleAddPost}  />
                 </div>
             </form>
         </section>

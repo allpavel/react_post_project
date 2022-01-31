@@ -9,9 +9,9 @@ import { usePost } from './Hooks/usePost';
 
 export const App = () => {
   const [posts, setPosts] = useState(POSTS);
-  const [filter, setFilter] = useState({sort: '', search: '', language: 'all'});
+  const [filter, setFilter] = useState({sort: '', titleSearch: '', bodySearch: '', language: 'all'});
   const [visible, setVisible] = useState(false);
-  const sortedAndSearchedPosts = usePost(posts, filter.sort, filter.search, filter.language);
+  const sortedAndSearchedPosts = usePost(posts, filter.sort, filter.titleSearch, filter.bodySearch, filter.language);
 
   const handleCreatePost = (newPost) => {
     setPosts([...posts, newPost]);

@@ -17,7 +17,7 @@ export const Select = ({posts, value, onChange}) => {
                 Filter by language: 
                 <select value={value} onChange={(event) => onChange(event.target.value)}>
                     <option className={styles.disabled} value='' disabled>choose the language</option>
-                    <option value='all'>All languages</option>
+                    <option key={uuidv4()} value='all'>All languages</option>
                     {languages.map(language => (
                         <option key={uuidv4()} value={language.toLowerCase()}>{language}</option>)
                         )}

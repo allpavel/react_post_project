@@ -1,17 +1,22 @@
 import React from 'react';
 import { Sort } from '../Sort/Sort';
-import { Search } from '../Search/Search';
+import { TitleSearch } from '../Search/titleSearch';
+import { BodySearch } from '../Search/bodySearch';
 import { Select } from '../Select/Select';
 
-export const PostFilter = ({filter, setFilter, language, posts}) => {
+export const PostFilter = ({filter, setFilter, posts}) => {
     return (
         <>
             <Sort 
                 value={filter.sort} 
                 onChange={(sort) => setFilter({...filter, sort: sort})} />
-            <Search 
-                value={filter.search} 
-                onChange={(event) => setFilter({...filter, search: event.target.value})} />
+            <TitleSearch 
+                value={filter.titleSearch} 
+                onChange={(event) => setFilter({...filter, titleSearch: event.target.value})} />
+            <br />
+            <BodySearch
+                value={filter.bodySearch}
+                onChange={(event) => setFilter({...filter, bodySearch: event.target.value})} />
             <Select
                 value={filter.language}
                 onChange={(language) => setFilter({...filter, language: language})} 
