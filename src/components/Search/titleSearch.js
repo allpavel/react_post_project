@@ -1,9 +1,9 @@
 import React from 'react';
 
-export const Search = ({value, onChange}) => {
+export const TitleSearch = ({value, onChange}) => {
     return (
         <label>
-            Search:{' '}
+            Search by title:{' '}
             <input type='text' value={value} onChange={onChange} />
         </label>
     )
