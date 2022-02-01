@@ -12,17 +12,15 @@ export const Select = ({posts, value, onChange}) => {
     };
 
     return (
-        <section>
-            <label>
-                Filter by language: 
-                <select value={value} onChange={(event) => onChange(event.target.value)}>
-                    <option className={styles.disabled} value='' disabled>choose the language</option>
-                    <option key={uuidv4()} value='all'>All languages</option>
-                    {languages.map(language => (
-                        <option key={uuidv4()} value={language.toLowerCase()}>{language}</option>)
-                        )}
-                </select>
-            </label>
-        </section>
+        <p>
+            <label htmlFor='select'>Filter by language:</label>
+            <select id='select' value={value} onChange={(event) => onChange(event.target.value)}>
+                <option className={styles.disabled} value='' disabled>choose the language</option>
+                <option key={uuidv4()} value='all'>All languages</option>
+                {languages.map(language => (
+                    <option key={uuidv4()} value={language.toLowerCase()}>{language}</option>)
+                    )}
+            </select>
+        </p>
     )
 }

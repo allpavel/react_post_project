@@ -2,10 +2,10 @@ import React from 'react';
 
 export const BodySearch = ({value, onChange}) => {
     return (
-        <label>
-            Search by description:{' '}
-            <input type='text' value={value} onChange={onChange} />
-        </label>
+        <p>
+            <label htmlFor='bodySearch'>Search by description:</label>
+            <input id='bodySearch' type='text' value={value} onChange={onChange} />
+        </p>
 
     )
 }
