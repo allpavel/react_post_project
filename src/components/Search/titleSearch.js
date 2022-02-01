@@ -2,9 +2,9 @@ import React from 'react';
 
 export const TitleSearch = ({value, onChange}) => {
     return (
-        <label>
-            Search by title:{' '}
-            <input type='text' value={value} onChange={onChange} />
-        </label>
+        <p>
+            <label htmlFor='titleSearch'>Search by title:</label>
+            <input id='titleSearch' type='text' value={value} onChange={onChange} />
+        </p>
     )
 }

@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
-import { POSTS } from './data';
-import { PostList } from './components/PostList/PostList';
-import { AddPost } from './components/AddPost/AddPost';
-import { PostFilter } from './components/PostFilter/PostFilter';
-import { Modal } from './components/Modal/Modal';
-import { CreatePostButton } from './UI/Buttons/CreatePostButton/CreatePostButton';
-import { usePost } from './Hooks/usePost';
+import { POSTS } from '../data';
+import { PostList } from '../components/PostList/PostList';
+import { AddPost } from '../components/AddPost/AddPost';
+import { PostFilter } from '../components/PostFilter/PostFilter';
+import { Modal } from '../components/Modal/Modal';
+import { CreatePostButton } from '../UI/Buttons/CreatePostButton/CreatePostButton';
+import { usePost } from '../Hooks/usePost';
 
-export const App = () => {
+export const Languages = () => {
   const [posts, setPosts] = useState(POSTS);
   const [filter, setFilter] = useState({sort: '', titleSearch: '', bodySearch: '', language: 'all'});
   const [visible, setVisible] = useState(false);

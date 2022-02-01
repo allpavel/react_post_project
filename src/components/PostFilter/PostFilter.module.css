@@ -1,0 +1,15 @@
+.container {
+    width: 400px;
+}
+
+.container p {
+    display: flex;
+}
+
+.container label {
+    margin-right: 10px;
+}
+
+.container input, .container select {
+    flex-grow: 1;
+}

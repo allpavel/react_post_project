@@ -1,6 +1,6 @@
 import React from 'react';
 import { Outlet, NavLink } from 'react-router-dom';
-import './UI/Styles/Navigation.css';
+import './Layout.css';
 
 export const Layout = () => {
     return (

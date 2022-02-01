@@ -3,15 +3,13 @@ import styles from './Sort.module.css';
 
 export const Sort = ({value, onChange}) => {
     return (
-        <section className={styles.sort}>
-            <label>
-                Sort by order:{' '}
-                <select value={value} onChange={(event) => onChange(event.target.value)}>
+        <p className={styles.sort}>
+            <label htmlFor='sort'>Sort by order:</label>
+                <select id='sort' value={value} onChange={(event) => onChange(event.target.value)}>
                     <option className={styles.disabled} value='' disabled>choose the order</option>
                     <option value='title'>Title</option>
                     <option value='body'>Description</option>
                 </select>
-            </label>
-        </section>
+        </p>
     )
 }
