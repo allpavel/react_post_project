@@ -1,5 +1,6 @@
 import React from 'react';
-import { Outlet, Link } from 'react-router-dom';
+import { Outlet, NavLink } from 'react-router-dom';
+import './UI/Styles/Navigation.css';
 
 export const Layout = () => {
     return (
@@ -7,10 +8,13 @@ export const Layout = () => {
             <nav>
                 <ul>
                     <li>
-                        <Link to='/'>Home</Link>
+                        <NavLink to='/'>Home</NavLink>
                     </li>
                     <li>
-                        <Link to='/languages'>Languages</Link>
+                        <NavLink to='/languages'>Languages</NavLink>
+                    </li>
+                    <li>
+                        <NavLink to='/posts'>Posts</NavLink>
                     </li>
                 </ul>
             </nav>
