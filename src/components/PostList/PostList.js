@@ -7,7 +7,7 @@ export const PostList = ({posts, onDeletePost}) => {
     if (posts.length) {
         return (
             <section className={styles.postslist}>
-                    {posts.map((post, index) => <Post key={uuidv4()} post={post} index={index} onDeletePost={onDeletePost} />)}
+                    {posts.map((post) => <Post key={uuidv4()} post={post} onDeletePost={onDeletePost} />)}
             </section>
         )
     }

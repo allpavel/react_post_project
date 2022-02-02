@@ -1,8 +1,15 @@
 import React, { useEffect, useState } from 'react';
+
+// import components
 import { PostFilter } from '../components/PostFilter/PostFilter';
 import { PostList } from '../components/PostList/PostList';
+import { Pagination } from '../components/Pagination/Pagination';
+
+// import UI
 import { Loader } from '../UI/Loader/Loader';
 import { ErrorComponent } from '../UI/Error/ErrorComponent';
+
+// import Hooks and API
 import { usePost } from '../Hooks/usePost';
 import { useFetchPosts } from '../Hooks/useFetchPosts';
 import PostService from '../API/Postservice';
@@ -10,9 +17,12 @@ import PostService from '../API/Postservice';
 export const Posts = () => {
     const [posts, setPosts] = useState('');
     const [filter, setFilter] = useState({ sort: '', titleSearch: '', bodySearch: '' });
+    const [currentPage, setCurrentPage] = useState(1);
+    const [postsPerPage] = useState(10);
     const [fetchPosts, isLoading, loadError] = useFetchPosts(async () => {
         const posts = await PostService.getPosts();
-        setPosts(posts)});
+        setPosts(posts);
+    });
     const sortedAndSearchedPosts = usePost(posts, filter.sort, filter.titleSearch, filter.bodySearch);
 
     const handleDeletePost = (removePost) => {
@@ -24,6 +34,11 @@ export const Posts = () => {
         fetchPosts();
     }, []);
 
+    const indexOfLastPost = currentPage * postsPerPage;
+    const indexOfFirstPost = indexOfLastPost - postsPerPage;
+    const currentPosts = sortedAndSearchedPosts.slice(indexOfFirstPost, indexOfLastPost);
+    const paginate = (pageNumber) => setCurrentPage(pageNumber);
+
     return (
         <>
             <h1>Posts from PlaceholderJSON</h1>
@@ -32,9 +47,10 @@ export const Posts = () => {
                         <Loader /> 
                         :
                         loadError ?
-                                  <ErrorComponent />
+                                  <ErrorComponent error={loadError} />
                                   :
-                                  <PostList posts={sortedAndSearchedPosts} onDeletePost={handleDeletePost} />}
+                                  <PostList posts={currentPosts} onDeletePost={handleDeletePost} />}
+            <Pagination postsPerPage={postsPerPage} totalPosts={sortedAndSearchedPosts.length} paginate={paginate} currentPage={currentPage} />
         </>
     );
 };
