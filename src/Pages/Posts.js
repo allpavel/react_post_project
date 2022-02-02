@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { PostFilter } from '../components/PostFilter/PostFilter';
 import { PostList } from '../components/PostList/PostList';
-import { Loader } from '../components/Loader/Loader';
+import { Loader } from '../UI/Loader/Loader';
+import { ErrorComponent } from '../UI/Error/ErrorComponent';
 import { usePost } from '../Hooks/usePost';
-import PostService from '../API/Postservice';
 import { useFetchPosts } from '../Hooks/useFetchPosts';
+import PostService from '../API/Postservice';
 
 export const Posts = () => {
     const [posts, setPosts] = useState('');
@@ -31,7 +32,7 @@ export const Posts = () => {
                         <Loader /> 
                         :
                         loadError ?
-                                  <h1>Loading error: {loadError}</h1>
+                                  <ErrorComponent />
                                   :
                                   <PostList posts={sortedAndSearchedPosts} onDeletePost={handleDeletePost} />}
         </>
