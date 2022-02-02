@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styles from './AddPost.module.css';
 
-export const AddPost = ({createPost}) => {
+export const AddPost = ({createPost, lastId}) => {
     const [title, setTitle] = useState('');
     const [body, setBody] = useState('');
   
@@ -16,7 +16,7 @@ export const AddPost = ({createPost}) => {
     const handleAddPost = (event) => {
         event.preventDefault();
         const newPost = {
-          id: Date.now(),
+          id: lastId + 1,
           title: title,
           body: body
         };
