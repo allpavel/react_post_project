@@ -4,27 +4,36 @@ import PostService from '../API/Postservice';
 import { useFetchPosts } from '../Hooks/useFetchPosts';
 import { Loader } from '../UI/Loader/Loader';
 import { ErrorComponent } from '../UI/Error/ErrorComponent';
+import { PostPageItem } from '../components/PostPageItem/PostPageItem';
+import { Comment } from '../components/Comment/Comment';
 
 export const PostPage = () => {
     const params = useParams();
     const [post, setPost] = useState({});
-    const [fetchPostById, isLoading, loadError] = useFetchPosts(async () => {
-        const response = await PostService.getPostById(params.id);
-        setPost(response.data);
+    const [comments, setComments] = useState([]);
+    const [fetchPostById, isLoadingPostPage, loadPostPageError] = useFetchPosts(async () => {
+        const post = await PostService.getPostById(params.id);
+        setPost(post.data);
+    });
+    const [fetchCommentsByPostId, isLoadingComments, loadCommentsError] = useFetchPosts(async () => {
+        const comments = await PostService.getCommentsByPostId(params.id);
+        setComments(comments.data);
     });
 
     useEffect(() => {
         fetchPostById();
+        fetchCommentsByPostId();
     }, []);
-
+    
     return (
-        <section>
-            {isLoading ? <Loader /> : loadError ? <ErrorComponent /> : 
-            <>
-                <h1>This is the Page of the Post with id: {post.id}</h1>
-                <h2>{post.title}</h2>
-            </>}
-            
-        </section>
+        <>
+            {isLoadingPostPage ? <Loader /> : loadPostPageError ? <ErrorComponent /> : <PostPageItem title={post.title} body={post.body} />}
+            <hr />
+            <h2>Comments (total: {comments.length}):</h2>
+            {isLoadingComments ? <Loader /> : loadCommentsError ? <ErrorComponent /> : 
+                <section>
+                    {comments.map(comment => <Comment key={comment.id} name={comment.name} email={comment.email} body={comment.body} />)}
+                </section>}
+        </>
     )
 };

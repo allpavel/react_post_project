@@ -22,6 +22,11 @@ nav li a:hover {
     background-color: #94B4D1    
 }
 
+.loginButton {
+    float: right;
+    margin-right: 0.5rem;
+}
+
 .active {
     background-color: aquamarine;
 }
