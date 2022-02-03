@@ -47,7 +47,7 @@ export const Posts = () => {
                         <Loader /> 
                         :
                         loadError ?
-                                  <ErrorComponent error={loadError} />
+                                  <ErrorComponent />
                                   :
                                   <PostList posts={currentPosts} onDeletePost={handleDeletePost} />}
             <Pagination postsPerPage={postsPerPage} totalPosts={sortedAndSearchedPosts.length} paginate={paginate} currentPage={currentPage} />
