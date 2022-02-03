@@ -1,0 +1,65 @@
+:root {
+    --blue: #1976D2;
+    --green: #168B64;
+    --red: #c51111;
+}
+
+.button {
+    margin-top: 10px;
+    margin-left: 10px;
+    outline: none;
+    cursor: pointer;
+    background: none;
+    transition: .5s;
+    border-radius: 5px;
+    font-family: Helvetica, sans-serif;
+}
+
+.largeButton {
+    width: 180px;
+    height: 60px;
+    font-size: 18px;
+}
+
+.smallButton {
+    width: 120px;
+    height: 50px;
+    font-size: 14px;
+}
+
+.button:hover {
+    border: none;
+    color: white;
+    font-size: 1.2em;
+    transform: scale(1.1);
+}
+
+.blue {
+    border: 2px solid var(--blue);
+    color: var(--blue);
+}
+
+.blue:hover {
+    background-color: var(--blue);
+    transition: all 0.3s ease-in-out;
+}
+
+.green {
+    border: 2px solid var(--green);
+    color: var(--green);
+}
+
+.green:hover {
+    background-color: var(--green);
+    transition: all 0.3s ease-in-out;
+}
+
+.red {
+    border: 2px solid var(--red);
+    color: var(--red);
+}
+
+.red:hover {
+    background-color: var(--red);
+    transition: all 0.3s ease-in-out;
+}

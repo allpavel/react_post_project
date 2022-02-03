@@ -5,7 +5,7 @@ import { AddPost } from '../components/AddPost/AddPost';
 import { PostFilter } from '../components/PostFilter/PostFilter';
 import { Modal } from '../components/Modal/Modal';
 import { Pagination } from '../components/Pagination/Pagination';
-import { CreatePostButton } from '../UI/Buttons/CreatePostButton/CreatePostButton';
+import { Button } from '../UI/Button/Button';
 import { usePost } from '../Hooks/usePost';
 
 export const Languages = () => {
@@ -32,7 +32,7 @@ export const Languages = () => {
 
   return (
     <>
-      <CreatePostButton onClick={() => setVisible(true)} />
+      <Button title={'Create new post'} onClick={() => setVisible(true)} styles={'button blue largeButton'} />
       <Modal visible={visible} setVisible={setVisible} >
         <AddPost createPost={handleCreatePost} lastId={posts[posts.length-1].id} />
       </Modal>
