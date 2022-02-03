@@ -9,7 +9,7 @@ export const useFetchPosts = (callback) => {
             setIsLoading(true);
             await callback();
         } catch (e) {
-            setError(e.message);           
+            setError(e.message);
         } finally {
             setIsLoading(false);
         }

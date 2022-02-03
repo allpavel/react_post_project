@@ -1,0 +1,28 @@
+.container {
+    background-color: #f0decc;
+    margin-bottom: 0.8em;
+}
+
+.contacts {
+    padding: 0.5em 2em;
+}
+
+.name {
+    font-size: 1.5em;
+    margin: 0;
+}
+
+.email {
+    margin: 0;
+    font-style: italic;
+}
+
+.body {
+    margin: 0;
+    padding: 0.2em 2em;
+
+}
+
+.body::first-letter {
+    text-transform: uppercase;
+}

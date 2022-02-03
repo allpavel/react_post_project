@@ -1,0 +1,12 @@
+.container {
+    background-color: beige;
+}
+
+.container h1 {
+    margin: 0;
+    padding: 10px 40px;
+}
+
+.container article {
+    padding: 40px;
+}
