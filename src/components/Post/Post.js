@@ -7,6 +7,16 @@ import { useNavigate } from 'react-router-dom';
 
 export const Post = ({post, onDeletePost}) => {
     let navigate = useNavigate();
+
+    const handleNavigate = () => {
+        navigate(`/posts/${post.id}`);
+    };
+    
+    const handleDeletePost = () => {
+        onDeletePost(post);
+    }
+
+
     return (
         <>
             <article key={uuidv4()} className={styles.post}>
@@ -17,11 +27,11 @@ export const Post = ({post, onDeletePost}) => {
                 <div>
                     <Button 
                         title={'Open'}
-                        onClick={() => navigate(`/posts/${post.id}`)}
+                        onClick={handleNavigate}
                         styles={'button green smallButton'} />
                     <Button 
                         title={'Delete'} 
-                        onClick={() => onDeletePost(post)}
+                        onClick={handleDeletePost}
                         styles={`button red smallButton`} />
                 </div>
             </article>
