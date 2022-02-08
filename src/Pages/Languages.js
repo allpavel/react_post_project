@@ -16,6 +16,11 @@ export const Languages = () => {
   const [postsPerPage] = useState(10);
   const sortedAndSearchedPosts = usePost(posts, filter.sort, filter.titleSearch, filter.bodySearch, filter.language);
 
+  const indexOfLastPost = currentPage * postsPerPage;
+  const indexOfFirstPost = indexOfLastPost - postsPerPage;
+  const currentPosts = sortedAndSearchedPosts.slice(indexOfFirstPost, indexOfLastPost);
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
+
   const handleCreatePost = (newPost) => {
     setPosts([...posts, newPost]);
     setVisible(false);  
@@ -25,10 +30,6 @@ export const Languages = () => {
     setPosts(posts.filter(post => post.id !== removePost.id));
   };
 
-  const indexOfLastPost = currentPage * postsPerPage;
-  const indexOfFirstPost = indexOfLastPost - postsPerPage;
-  const currentPosts = sortedAndSearchedPosts.slice(indexOfFirstPost, indexOfLastPost);
-  const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   return (
     <>
