@@ -30,6 +30,8 @@ export const Languages = () => {
     setPosts(posts.filter(post => post.id !== removePost.id));
   };
 
+  console.log('sortedAndSearchedPosts', sortedAndSearchedPosts);
+  console.log('currentPosts', currentPosts);
 
   return (
     <>
