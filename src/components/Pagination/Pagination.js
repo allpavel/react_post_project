@@ -7,7 +7,7 @@ export const Pagination = ({ postsPerPage, totalPosts, paginate, currentPage }) 
 
     useEffect(() => {
         paginate(1);
-    }, [totalPosts]);
+    }, [pageNumbers]);
 
     return (
         <nav className={styles.footer}>
